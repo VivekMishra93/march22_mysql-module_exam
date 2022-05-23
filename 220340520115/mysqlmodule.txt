@@ -1,0 +1,89 @@
+ -----------------------------
+
+
+create table DEPT
+(DEPTNO INT(2),
+DNAME VARCHAR(15),
+LOC VARCHAR(15)
+);
+
+insert into DEPT(DEPTNO,DNAME,LOC)
+values (10,'ACCOUNTING','NEWYORK'),
+(20,'RESEARCH','DALLAS'),
+(30,'SALES','CHICAGO'),
+(40,'OPERATIONS','BOSTON');
+
+
+
+
+create table EMP
+(EMPNO	int(4),
+ENAME varchar(10),
+JOB	varchar(9),
+HIREDATE date,
+SAL	float(7,2),
+COMM float(7,2),
+DEPTNO int(2)
+);
+
+INSERT INTO EMP (EMPNO,ENAME,JOB,HIREDATE,SAL,COMM,DEPTNO)
+VALUES( 7839,'KING','MANAGER','1991-11-17',5000,NULL,10),
+(7698,'BLAKE','CLERK','1981-05-01',2850,NULL,30),
+(7782,'CLARK','MANAGER','1981-06-09',2450,NULL,10),
+(7566,'JONES','CLERK','1981-04-02',2975,NULL,20),
+(7654,'MARTIN','SALESMAN','1981-09-28',1250,1400,30),
+(7499,'ALLEN','SALESMAN','1981-02-20',1600,300,30);
+
+SELECT * FROM EMP;
+
+3) SELECT SAL FROM EMP 
+   WHERE SAL BETWEEN 2500 AND  5000;
+
+4) SELECT * FROM emp
+   ORDER BY ENAME DESC;
+ 
+5)  SELECT LOWER(JOB) FROM EMP;
+ 
+6)  SELECT ENAME,CHAR_LENGTH('ENAME') FROM EMP;
+ 
+7)  SELECT DEPTNO,COUNT(*) 
+    FROM EMP GROUP BY DEPTNO;
+	
+8)   SELECT D.DNAME,E.ENAME FROM
+     DEPT D JOIN EMP E ON D.DEPTNO=E.DEPTNO;
+ 
+9)   SELECT POSITION('ar' in ename) from emp;
+ 
+10)    SELECT ENAME,
+      SAL*0.2 "HRA"
+      FROM EMP;
+ 
+ 
+-----------------------------------------
+
+SECTION 2
+
+1)
+delimiter //
+create procedure PROC1(a varchar(15), b varchar(15))
+begin
+declare x varchar(15);
+declare y varchar(15);
+insert into tempp values(x,'string1 exist');
+insert into tempp values(y,'string2 exist');
+end; //
+delimiter ;
+call PROC1('DAC','CDAC');
+SELECT * FROM TEMPP;
+----------------
+2)
+delimiter //
+create function fun1(x int,y int,z int)
+return boolean
+deterministic
+begin
+if 
+
+
+end; //
+delimiter ;
